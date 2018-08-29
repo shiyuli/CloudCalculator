@@ -1,7 +1,6 @@
 package com.lishiyu.CloudCalculator.Client;
 
 import com.lishiyu.CloudCalculator.Common.Core;
-import com.lishiyu.CloudCalculator.Common.MQManager;
 import com.lishiyu.CloudCalculator.Common.Utils;
 
 import javax.swing.*;
@@ -166,6 +165,15 @@ public class GUI implements UI {
     }
 
     public static String cloudParse(String calcString) {
+//        Communicator.getInstance().sendMessage(calcString);
+//        String message = Communicator.getInstance().readMessage();
+
+        String message = Communicator.getInstance().test(calcString);
+        Utils.debug("cloudParse: " + message);
+
+        return message;
+
+        /*
         String result = null;
         List<String> resultList;
 
@@ -192,6 +200,7 @@ public class GUI implements UI {
         }
 
         return result;
+        */
     }
 
     private void OnNumberButtonClick(JButton sender) {
